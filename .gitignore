@@ -45,3 +45,6 @@ coverage/
 *.coverage
 *.coveragexml
 *.opencover.xml
+
+# Build artifacts
+artifacts/
