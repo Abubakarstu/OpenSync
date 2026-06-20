@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>OpenSync.AspNetCore</id>
+    <version>1.0.0</version>
+    <title>OpenSync ASP.NET Core Integration</title>
+    <authors>Muhammad Abubakar</authors>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <projectUrl>https://www.linkedin.com/in/muhammadabubakar-dotnetdeveloper/</projectUrl>
+    <description>Embed OpenSync real-time sync infrastructure in any ASP.NET Core application</description>
+    <copyright>Copyright (c) 2024-2026 Muhammad Abubakar</copyright>
+    <tags>realtime sync websocket aspnetcore opensync</tags>
+    <repository type="git" url="https://www.linkedin.com/in/muhammadabubakar-dotnetdeveloper/" commit="8b6a680274dd723c0ac1e36a59a6433f12038396" />
+    <dependencies>
+      <group targetFramework="net8.0">
+        <dependency id="OpenSync.Application" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="OpenSync.Infrastructure" version="1.0.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>
