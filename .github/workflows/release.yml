@@ -28,15 +28,15 @@ jobs:
         run: dotnet restore
 
       - name: Build
-        run: dotnet build -c Release
+        run: dotnet build -c Release --no-restore
 
       - name: Test
-        run: dotnet test -c Release --verbosity normal
+        run: dotnet test -c Release --no-build --verbosity normal
 
       - name: Pack NuGet packages
         run: |
-          dotnet pack nupkgs/OpenSync.Sdk/OpenSync.Sdk.csproj -c Release -o ./artifacts /p:Version=$VERSION
-          dotnet pack nupkgs/OpenSync.AspNetCore/OpenSync.AspNetCore.csproj -c Release -o ./artifacts /p:Version=$VERSION
+          dotnet pack nupkgs/OpenSync.Sdk/OpenSync.Sdk.csproj -c Release --no-build -o ./artifacts /p:Version=$VERSION
+          dotnet pack nupkgs/OpenSync.AspNetCore/OpenSync.AspNetCore.csproj -c Release --no-build -o ./artifacts /p:Version=$VERSION
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
@@ -56,7 +56,7 @@ jobs:
             --source github
 
       - name: Publish to NuGet.org
-        if: ${{ secrets.NUGET_API_KEY != '' }}
+        if: secrets.NUGET_API_KEY != ''
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
         run: |
