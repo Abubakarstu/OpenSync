@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -6,11 +6,24 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>OpenSync.Sdk</PackageId>
     <Title>OpenSync Client SDK</Title>
-    <Description>.NET client SDK for OpenSync real-time synchronization service</Description>
-    <PackageTags>realtime;sync;websocket;sse;opensync</PackageTags>
+    <Description>Client SDK for OpenSync real-time sync infrastructure.</Description>
+    <PackageTags>realtime;sync;websocket;opensync</PackageTags>
     <Version>1.0.0</Version>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/Abubakarstu/OpenSync</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Abubakarstu/OpenSync</RepositoryUrl>
+    <Authors>Muhammad Abubakar</Authors>
+    <Company>Muhammad Abubakar</Company>
+    <Copyright>Copyright (c) 2024-2026 Muhammad Abubakar</Copyright>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>CS1591</NoWarn>
+    <NuspecProperties>repository=https://github.com/Abubakarstu/OpenSync</NuspecProperties>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
   </PropertyGroup>
+
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
+    <None Include="$(OutputPath)**\*.dll" Pack="true" PackagePath="lib\net8.0\" Exclude="$(OutputPath)**\OpenSync.Sdk.dll;$(OutputPath)**\*.testhost.dll;$(OutputPath)**\xunit*.dll;$(OutputPath)**\Microsoft.TestPlatform*.dll" />
   </ItemGroup>
+
 </Project>

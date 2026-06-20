@@ -1,140 +1,50 @@
+using System.Text.Json;
 using OpenSync.Sdk;
-using OpenSync.Sdk.Auth;
-using OpenSync.Sdk.Transports;
+using OpenSync.Sdk.Events;
 
-Console.ForegroundColor = ConsoleColor.Cyan;
-Console.WriteLine("==============================================");
-Console.WriteLine("  OpenSync Demo - Real-time Sync Showcase");
-Console.WriteLine("  Like Twilio Sync for .NET");
-Console.WriteLine("==============================================");
-Console.ResetColor();
-Console.WriteLine();
+var client = new OpenSyncClient("http://localhost:5000", TransportType.WebSocket);
 
-var baseUrl = "http://localhost:5000";
-var tokenProvider = new TokenProvider("demo-key");
-using var client = new OpenSyncClient(baseUrl, tokenProvider, TransportType.WebSocket);
+Console.WriteLine("OpenSync Demo Client");
+Console.WriteLine("=====================");
 
-client.OnConnected += (_, _) => WriteColored("Connected to server!", ConsoleColor.Green);
-client.OnDisconnected += (_, _) => WriteColored("Disconnected from server", ConsoleColor.Yellow);
+// Generate a token
+var token = await client.GenerateTokenAsync("demo-user", "demo", new Dictionary<string, string[]>(), 60);
+Console.WriteLine($"Generated token: {token[..20]}...")
 
-await client.ConnectAsync();
-await Task.Delay(500);
-
-Console.WriteLine();
-
-await DemonstrateDocument(client);
-
-await DemonstrateStream(client);
-
-await DemonstrateChannel(client);
-
-Console.WriteLine();
-WriteColored("Demo completed successfully!", ConsoleColor.Green);
-WriteColored("Press any key to exit...", ConsoleColor.DarkGray);
-Console.ReadKey();
-
-static async Task DemonstrateDocument(OpenSyncClient client)
+// Subscribe to document changes
+await client.SubscribeAsync<SyncDocumentEvent>("$documents.test-doc", async (e) =>
 {
-    WriteHeader("1. SyncDocument - Shared Configuration Object");
+    Console.WriteLine($"Document updated: {e.Data}");
+});
 
-    var doc = await client.GetDocumentAsync("app-config");
-    doc.OnUpdated += (_, e) => WriteColored($"  [Event] Document updated: {e.Data}", ConsoleColor.Magenta);
-    doc.OnRemoved += (_, _) => WriteColored("  [Event] Document removed", ConsoleColor.Red);
+// Create a document
+var docId = await client.CreateDocumentAsync("test-doc", "{\"message\": \"Hello from client!\"}");
+Console.WriteLine($"Created document with ID: {docId}")
 
-    await doc.SubscribeAsync();
-    await Task.Delay(200);
-
-    WriteColored("  Setting document data...", ConsoleColor.Gray);
-    await doc.SetAsync(new
-    {
-        theme = "dark",
-        language = "en",
-        features = new[] { "chat", "sync", "presence" }
-    });
-
-    await Task.Delay(500);
-    WriteColored("  Document synced! Changes are pushed in real-time to all subscribers.", ConsoleColor.DarkGray);
-    Console.WriteLine();
-}
-
-static async Task DemonstrateStream(OpenSyncClient client)
+// Subscribe to stream messages
+await client.SubscribeAsync<StreamMessageEvent>("$streams.chat", async (e) =>
 {
-    WriteHeader("2. SyncStream - Real-time Event Stream");
+    Console.WriteLine($"Stream message: {e.Data}");
+});
 
-    var stream = await client.GetStreamAsync("notifications");
-    stream.OnMessage += (_, e) => WriteColored($"  [Event] Stream message: {e.Data}", ConsoleColor.Cyan);
+// Publish to stream
+await client.PublishMessageAsync("chat", "{\"user\": \"client\", \"text\": \"Hi there!\"}");
+Console.WriteLine("Published message to stream")
 
-    await stream.SubscribeAsync();
-    await Task.Delay(200);
-
-    WriteColored("  Publishing stream messages...", ConsoleColor.Gray);
-    await stream.PublishAsync(new { type = "info", message = "User joined the workspace", timestamp = DateTime.UtcNow });
-    await Task.Delay(300);
-    await stream.PublishAsync(new { type = "alert", message = "Task completed", timestamp = DateTime.UtcNow });
-    await Task.Delay(300);
-    await stream.PublishAsync(new { type = "success", message = "File uploaded", timestamp = DateTime.UtcNow });
-
-    await Task.Delay(500);
-    WriteColored("  Stream messages delivered in real-time to all subscribers.", ConsoleColor.DarkGray);
-    Console.WriteLine();
-}
-
-static async Task DemonstrateChannel(OpenSyncClient client)
+// Subscribe to channel
+await client.SubscribeAsync<ChannelMemberJoinedEvent>("$channels/general", async (e) =>
 {
-    WriteHeader("3. SyncChannel - Real-time Chat with Presence");
+    Console.WriteLine($"User {e.Identity} joined the channel");
+});
 
-    var channel = await client.GetChannelAsync("general");
-    channel.OnMessage += (_, e) => WriteColored($"  [Event] Channel message: {e.Data}", ConsoleColor.Yellow);
-    channel.OnMemberJoined += (_, e) => WriteColored($"  [Event] Member joined: {e.Data}", ConsoleColor.Green);
-    channel.OnMemberLeft += (_, e) => WriteColored($"  [Event] Member left: {e.Data}", ConsoleColor.Red);
+await client.JoinChannelAsync("general", "client", "{\"role\": \"user\"}");
+Console.WriteLine("Joined channel")
 
-    await channel.SubscribeAsync();
-    await Task.Delay(200);
+// Send message to channel
+await client.BroadcastMessageAsync("general", "{\"user\": \"client\", \"text\": \"Hello everyone!\"}");
+Console.WriteLine("Sent message to channel")
 
-    WriteColored("  Joining channel 'general'...", ConsoleColor.Gray);
-    await channel.JoinAsync(new { displayName = "DemoUser", avatar = "https://example.com/avatar.png" });
+await client.LeaveChannelAsync("general");
+Console.WriteLine("Left channel")
 
-    await Task.Delay(300);
-
-    WriteColored("  Sending messages...", ConsoleColor.Gray);
-    await channel.SendMessageAsync(new
-    {
-        author = "DemoUser",
-        text = "Hello everyone! This is a real-time message via OpenSync!",
-        timestamp = DateTime.UtcNow
-    });
-
-    await Task.Delay(200);
-    await channel.SendMessageAsync(new
-    {
-        author = "DemoUser",
-        text = "OpenSync supports Document, List, Map, Stream, and Channel primitives.",
-        timestamp = DateTime.UtcNow
-    });
-
-    await Task.Delay(500);
-    WriteColored("  Messages broadcast to all channel members in real-time.", ConsoleColor.DarkGray);
-
-    await Task.Delay(200);
-    WriteColored("  Leaving channel...", ConsoleColor.Gray);
-    await channel.LeaveAsync();
-    WriteColored("  Left channel. Presence updated for remaining members.", ConsoleColor.DarkGray);
-    Console.WriteLine();
-}
-
-static void WriteHeader(string text)
-{
-    Console.ForegroundColor = ConsoleColor.White;
-    Console.WriteLine(text);
-    Console.ForegroundColor = ConsoleColor.DarkGray;
-    Console.WriteLine(new string('-', text.Length));
-    Console.ResetColor();
-}
-
-static void WriteColored(string text, ConsoleColor color)
-{
-    var original = Console.ForegroundColor;
-    Console.ForegroundColor = color;
-    Console.WriteLine(text);
-    Console.ForegroundColor = original;
-}
+Console.WriteLine("\nDemo completed successfully!")

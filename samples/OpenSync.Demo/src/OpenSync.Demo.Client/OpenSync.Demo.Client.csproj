@@ -1,11 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>OpenSync.Demo.Client</RootNamespace>
   </PropertyGroup>
+
   <ItemGroup>
-    <PackageReference Include="OpenSync.Sdk" Version="1.0.17" />
+    <PackageReference Include="OpenSync.Sdk" Version="1.0.0" />
   </ItemGroup>
+
 </Project>

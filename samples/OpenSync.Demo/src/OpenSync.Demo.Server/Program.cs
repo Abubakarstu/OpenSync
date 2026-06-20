@@ -9,8 +9,6 @@ using OpenSync.Application.Streams.Commands.PublishMessage;
 using OpenSync.AspNetCore.Extensions;
 using OpenSync.AspNetCore.Middleware;
 using OpenSync.Core.Entities;
-using OpenSync.Core.Interfaces.Repositories;
-using OpenSync.Core.Interfaces.Services;
 using OpenSync.Infrastructure.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);

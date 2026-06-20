@@ -1,13 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>OpenSync.Demo.Server</RootNamespace>
   </PropertyGroup>
+
   <ItemGroup>
-    <ProjectReference Include="../../../../src/OpenSync.Core/OpenSync.Core.csproj" />
-    <ProjectReference Include="../../../../src/OpenSync.Application/OpenSync.Application.csproj" />
-    <ProjectReference Include="../../../../src/OpenSync.Infrastructure/OpenSync.Infrastructure.csproj" />
-    <ProjectReference Include="../../../../nupkgs/OpenSync.AspNetCore/OpenSync.AspNetCore.csproj" />
+    <PackageReference Include="OpenSync.AspNetCore" Version="1.0.0" />
   </ItemGroup>
+
 </Project>

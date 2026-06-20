@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -6,12 +6,24 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>OpenSync.AspNetCore</PackageId>
     <Title>OpenSync ASP.NET Core Integration</Title>
-    <Description>Embed OpenSync real-time sync infrastructure in any ASP.NET Core application</Description>
+    <Description>Embed OpenSync real-time sync infrastructure in any ASP.NET Core application. All dependencies bundled.</Description>
     <PackageTags>realtime;sync;websocket;aspnetcore;opensync</PackageTags>
     <Version>1.0.0</Version>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/Abubakarstu/OpenSync</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Abubakarstu/OpenSync</RepositoryUrl>
+    <Authors>Muhammad Abubakar</Authors>
+    <Company>Muhammad Abubakar</Company>
+    <Copyright>Copyright (c) 2024-2026 Muhammad Abubakar</Copyright>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>CS1591</NoWarn>
+    <NuspecProperties>repository=https://github.com/Abubakarstu/OpenSync</NuspecProperties>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
   </PropertyGroup>
+
   <ItemGroup>
-    <ProjectReference Include="../../src/OpenSync.Infrastructure/OpenSync.Infrastructure.csproj" />
-    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <None Include="$(OutputPath)**\*.dll" Pack="true" PackagePath="lib\net8.0\" Exclude="$(OutputPath)**\OpenSync.AspNetCore.dll;$(OutputPath)**\*.testhost.dll;$(OutputPath)**\xunit*.dll;$(OutputPath)**\Microsoft.TestPlatform*.dll" />
   </ItemGroup>
+
 </Project>
