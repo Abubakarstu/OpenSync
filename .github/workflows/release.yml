@@ -23,3 +23,12 @@ jobs:
         run: dotnet build -c Release --no-restore
       - name: Test
         run: dotnet test -c Release --no-build --verbosity normal
+      - name: Pack NuGet packages
+        run: |
+          dotnet pack nupkgs/OpenSync.Sdk/OpenSync.Sdk.csproj -c Release --no-build -o ./artifacts /p:Version=$VERSION
+          dotnet pack nupkgs/OpenSync.AspNetCore/OpenSync.AspNetCore.csproj -c Release --no-build -o ./artifacts /p:Version=$VERSION
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ./artifacts/*.nupkg
+          generate_release_notes: true
