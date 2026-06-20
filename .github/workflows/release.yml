@@ -45,10 +45,12 @@ jobs:
           generate_release_notes: true
 
       - name: Publish to GitHub Packages
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           dotnet nuget add source \
             --username Abubakarstu \
-            --password ${{ secrets.GITHUB_TOKEN }} \
+            --password "$GH_TOKEN" \
             --store-password-in-clear-text \
             --name github \
             "https://nuget.pkg.github.com/Abubakarstu/index.json"
