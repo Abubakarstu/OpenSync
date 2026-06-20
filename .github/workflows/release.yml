@@ -34,13 +34,13 @@ jobs:
           generate_release_notes: true
       - name: Publish to GitHub Packages
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
         run: |
           dotnet nuget add source --username Abubakarstu --password "$GH_TOKEN" --store-password-in-clear-text --name github "https://nuget.pkg.github.com/Abubakarstu/index.json"
           dotnet nuget push ./artifacts/*.nupkg --source github
       - name: Publish to NuGet.org
         if: secrets.NUGET_API_KEY != ''
         env:
-          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+          NUGET_API_KEY: "${{ secrets.NUGET_API_KEY }}"
         run: |
           dotnet nuget push ./artifacts/*.nupkg --api-key "$NUGET_API_KEY" --source https://api.nuget.org/v3/index.json
