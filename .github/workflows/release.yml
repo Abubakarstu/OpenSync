@@ -44,7 +44,19 @@ jobs:
           files: ./artifacts/*.nupkg
           generate_release_notes: true
 
+      - name: Publish to GitHub Packages
+        run: |
+          dotnet nuget add source \
+            --username Abubakarstu \
+            --password ${{ secrets.GITHUB_TOKEN }} \
+            --store-password-in-clear-text \
+            --name github \
+            "https://nuget.pkg.github.com/Abubakarstu/index.json"
+          dotnet nuget push ./artifacts/*.nupkg \
+            --source github
+
       - name: Publish to NuGet.org
+        if: ${{ secrets.NUGET_API_KEY != '' }}
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
         run: |
