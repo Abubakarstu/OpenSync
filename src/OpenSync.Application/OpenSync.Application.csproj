@@ -17,7 +17,11 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <IsPackable>false</IsPackable>
+    <IsPackable>true</IsPackable>
+    <PackageId>OpenSync.Application</PackageId>
+    <Title>OpenSync Application</Title>
+    <Description>Application layer with MediatR commands, queries, validation, and behaviors for OpenSync</Description>
+    <PackageTags>realtime;sync;mediatr;application;opensync</PackageTags>
   </PropertyGroup>
 
 </Project>

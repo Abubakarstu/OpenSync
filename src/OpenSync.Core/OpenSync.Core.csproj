@@ -4,7 +4,11 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <IsPackable>false</IsPackable>
+    <IsPackable>true</IsPackable>
+    <PackageId>OpenSync.Core</PackageId>
+    <Title>OpenSync Core</Title>
+    <Description>Core domain models and interfaces for OpenSync real-time synchronization framework</Description>
+    <PackageTags>realtime;sync;websocket;domain;opensync</PackageTags>
   </PropertyGroup>
 
 </Project>

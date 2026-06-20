@@ -22,7 +22,11 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <IsPackable>false</IsPackable>
+    <IsPackable>true</IsPackable>
+    <PackageId>OpenSync.Infrastructure</PackageId>
+    <Title>OpenSync Infrastructure</Title>
+    <Description>Infrastructure layer with EF Core, real-time transports, JWT auth, Redis backplane for OpenSync</Description>
+    <PackageTags>realtime;sync;efcore;postgresql;websocket;redis;opensync</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
