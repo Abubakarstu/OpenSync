@@ -1,8 +1,21 @@
+using System.Text.Json;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OpenSync.Core.Entities;
+using OpenSync.Core.ValueObjects;
 using OpenSync.Infrastructure.Persistence.Interceptors;
 
 namespace OpenSync.Infrastructure.Persistence;
+
+public class JsonDataConverter : ValueConverter<JsonData, string>
+{
+    public JsonDataConverter()
+        : base(
+            v => v.Raw,
+            v => new JsonData(v, null))
+    {
+    }
+}
 
 public class OpenSyncDbContext : DbContext
 {
@@ -27,6 +40,11 @@ public class OpenSyncDbContext : DbContext
     {
         _auditInterceptor = auditInterceptor;
         _domainEventInterceptor = domainEventInterceptor;
+    }
+
+    protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+    {
+        configurationBuilder.Properties<JsonData>().HaveConversion<JsonDataConverter>();
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

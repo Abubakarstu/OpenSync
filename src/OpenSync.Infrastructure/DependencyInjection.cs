@@ -79,6 +79,7 @@ public static class DependencyInjection
         services.AddSingleton<IIdGenerator, IdGenerator>();
         services.AddSingleton<ISystemClock, SystemClock>();
         services.AddSingleton<IJsonValidator, JsonValidator>();
+        services.AddSingleton<IEventPublisher, EventPublisher>();
         services.AddSingleton<RateLimitService>();
         services.AddHostedService<TtlExpiryService>();
         services.AddHostedService<HeartbeatService>();

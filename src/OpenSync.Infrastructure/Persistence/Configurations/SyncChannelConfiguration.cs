@@ -20,7 +20,9 @@ public class SyncChannelConfiguration : IEntityTypeConfiguration<SyncChannel>
             attr.Property(a => a.Type).HasColumnName("channel_type").HasMaxLength(64);
             attr.Property(a => a.IsPrivate).HasColumnName("is_private").HasDefaultValue(false);
             attr.Property(a => a.MaxMembers).HasColumnName("max_members").HasDefaultValue(1000);
-            attr.Property(a => a.Custom).HasColumnName("custom_attributes").HasColumnType("jsonb").HasDefaultValue("{}");
+            attr.Property(a => a.Custom).HasColumnName("custom_attributes").HasColumnType("jsonb").HasConversion(
+                v => System.Text.Json.JsonSerializer.Serialize(v, (System.Text.Json.JsonSerializerOptions?)null),
+                v => System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, string>>(v, (System.Text.Json.JsonSerializerOptions?)null) ?? new());
         });
         builder.HasIndex(x => new { x.ServiceId, x.UniqueName }).IsUnique().HasFilter("\"unique_name\" IS NOT NULL");
     }
