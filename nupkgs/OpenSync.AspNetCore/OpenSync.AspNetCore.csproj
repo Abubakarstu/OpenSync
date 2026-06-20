@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>OpenSync.AspNetCore</PackageId>
+    <Title>OpenSync ASP.NET Core Integration</Title>
+    <Description>Embed OpenSync real-time sync infrastructure in any ASP.NET Core application</Description>
+    <PackageTags>realtime;sync;websocket;aspnetcore;opensync</PackageTags>
+    <Version>1.0.0</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../src/OpenSync.Application/OpenSync.Application.csproj" />
+    <ProjectReference Include="../../src/OpenSync.Infrastructure/OpenSync.Infrastructure.csproj" />
+  </ItemGroup>
+</Project>

@@ -35,8 +35,8 @@ jobs:
 
       - name: Pack NuGet packages
         run: |
-          dotnet pack packages/OpenSync.Sdk/OpenSync.Sdk.csproj -c Release -o ./artifacts
-          dotnet pack packages/OpenSync.AspNetCore/OpenSync.AspNetCore.csproj -c Release -o ./artifacts
+          dotnet pack nupkgs/OpenSync.Sdk/OpenSync.Sdk.csproj -c Release -o ./artifacts
+          dotnet pack nupkgs/OpenSync.AspNetCore/OpenSync.AspNetCore.csproj -c Release -o ./artifacts
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2

@@ -13,11 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSync.Infrastructure", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSync.Api", "src\OpenSync.Api\OpenSync.Api.csproj", "{09319301-298E-4236-B44C-C5418BB3E5C8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "packages", "packages", "{809F86A1-1C4C-B159-0CD4-DF9D33D876CE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nupkgs", "nupkgs", "{809F86A1-1C4C-B159-0CD4-DF9D33D876CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSync.Sdk", "packages\OpenSync.Sdk\OpenSync.Sdk.csproj", "{8396B64C-CEA4-413B-9425-EC11581912AD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSync.Sdk", "nupkgs\OpenSync.Sdk\OpenSync.Sdk.csproj", "{8396B64C-CEA4-413B-9425-EC11581912AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSync.AspNetCore", "packages\OpenSync.AspNetCore\OpenSync.AspNetCore.csproj", "{3311CF9F-AF5D-48C2-9305-52C07120017A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSync.AspNetCore", "nupkgs\OpenSync.AspNetCore\OpenSync.AspNetCore.csproj", "{3311CF9F-AF5D-48C2-9305-52C07120017A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0AB3BF05-4346-4AA6-1389-037BE0695223}"
 EndProject

@@ -6,8 +6,6 @@ obj/
 *.sln.docstates
 *.userprefs
 *.csproj.user
-**/[Pp]ackages/*
-!**/[Pp]ackages/build/
 *.nupkg
 **/[Rr]elease/
 **/[Dd]ebug/
