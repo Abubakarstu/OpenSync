@@ -39,7 +39,7 @@ jobs:
           dotnet nuget add source --username Abubakarstu --password "$GH_TOKEN" --store-password-in-clear-text --name github "https://nuget.pkg.github.com/Abubakarstu/index.json"
           dotnet nuget push ./artifacts/*.nupkg --source github
       - name: Publish to NuGet.org
-        if: ${{ secrets.NUGET_API_KEY != '' }}
+        if: ${{ true }}
         env:
           NUGET_API_KEY: "${{ secrets.NUGET_API_KEY }}"
         run: |
