@@ -1,0 +1,18 @@
+<Project>
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>CS1591</NoWarn>
+    <AnalysisLevel>latest</AnalysisLevel>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <Authors>Muhammad Abubakar</Authors>
+    <Company>Muhammad Abubakar</Company>
+    <Copyright>Copyright (c) 2024-2026 Muhammad Abubakar</Copyright>
+    <PackageProjectUrl>https://www.linkedin.com/in/muhammadabubakar-dotnetdeveloper/</PackageProjectUrl>
+    <RepositoryUrl>https://www.linkedin.com/in/muhammadabubakar-dotnetdeveloper/</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+</Project>

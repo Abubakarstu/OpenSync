@@ -1,0 +1,49 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+*.sln.docstates
+*.userprefs
+*.csproj.user
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+*.nupkg
+**/[Rr]elease/
+**/[Dd]ebug/
+
+# NuGet
+packages/
+*.nuget.props
+*.nuget.targets
+
+# Logs
+logs/
+*.log
+*.txt
+
+# Database
+*.db
+*.sqlite
+
+# IDE
+.idea/
+.vs/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Docker
+docker-compose.override.yml
+
+# Coverage
+coverage/
+*.coverage
+*.coveragexml
+*.opencover.xml

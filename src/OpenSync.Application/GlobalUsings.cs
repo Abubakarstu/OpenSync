@@ -1,0 +1,14 @@
+global using System;
+global using System.Collections.Generic;
+global using System.Linq;
+global using System.Threading;
+global using System.Threading.Tasks;
+global using OpenSync.Application.Common;
+global using OpenSync.Application.Common.Abstractions;
+global using OpenSync.Application.Common.Models;
+global using OpenSync.Core.Entities;
+global using OpenSync.Core.Interfaces.Repositories;
+global using OpenSync.Core.Interfaces.Services;
+global using OpenSync.Core.ValueObjects;
+global using OpenSync.Core.Exceptions;
+global using Microsoft.Extensions.Logging;
