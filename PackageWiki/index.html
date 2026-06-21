@@ -116,6 +116,8 @@
 															class="ri-record-circle-line"></i>Quick Start</a></li>
 												<li class="list"><a href="#gx_nuget" class="gx-page-link drop"><i
 															class="ri-record-circle-line"></i>NuGet Package</a></li>
+												<li class="list"><a href="#gx_compare" class="gx-page-link drop"><i
+															class="ri-record-circle-line"></i>vs Twilio &amp; SignalR</a></li>
 											</ul>
 										</li>
 										<li class="gx-sb-title condense">User Manual</li>
@@ -334,6 +336,70 @@
 											</div>
 										</div>
 									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Comparison -->
+						<div class="gx-block" id="gx_compare">
+							<div class="gx-card gx-page-block">
+								<div class="gx-card-header header-575">
+									<h4 class="gx-card-title">OpenSync vs Twilio Sync &amp; SignalR</h4>
+									<div class="header-tools">
+										<a href="javascript:void(0)" class="m-r-10 gx-full-card">
+											<i class="ri-fullscreen-line" title="Full Screen"></i></a>
+									</div>
+								</div>
+								<div class="gx-card-content">
+									<table class="table">
+										<thead>
+											<tr>
+												<th>Feature</th>
+												<th>OpenSync</th>
+												<th>Twilio Sync</th>
+												<th>SignalR</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr><td>Hosting</td><td>Self-hosted, open-source</td><td>Managed cloud (vendor lock-in)</td><td>Self-hosted, open-source</td></tr>
+											<tr><td>Pricing</td><td>Free</td><td>Pay-per-operation</td><td>Free</td></tr>
+											<tr><td>Sync Primitives</td><td>Documents, Lists, Maps, Streams, Channels</td><td>Documents, Lists, Maps, Streams, Channels</td><td>Hubs (RPC only — no data primitives)</td></tr>
+											<tr><td>REST API</td><td>Full CRUD for all primitives</td><td>Full REST API</td><td>None (hub protocol only)</td></tr>
+											<tr><td>Transports</td><td>WebSocket, SSE, Long-Polling</td><td>WebSocket</td><td>WebSocket, SSE, Long-Polling</td></tr>
+											<tr><td>Persistence</td><td>PostgreSQL, SQLite, SQL Server (pluggable)</td><td>Managed (no direct DB access)</td><td>None (in-memory only)</td></tr>
+											<tr><td>Conflict Resolution</td><td>Optimistic concurrency via revisions</td><td>Last-write-wins (no built-in revisions)</td><td>None</td></tr>
+											<tr><td>TTL Expiry</td><td>Built-in per-object TTL with cleanup</td><td>Built-in</td><td>None</td></tr>
+											<tr><td>Authentication</td><td>JWT + API keys</td><td>Twilio Access Tokens</td><td>Custom (no built-in)</td></tr>
+											<tr><td>Channel Presence</td><td>Join/leave, metadata, member list</td><td>Join/leave, metadata</td><td>Groups (no metadata, no presence)</td></tr>
+											<tr><td>Multi-Instance</td><td>Redis backplane (built-in)</td><td>Managed (auto-scale)</td><td>Redis backplane (manual setup)</td></tr>
+											<tr><td>Rate Limiting</td><td>Built-in sliding window</td><td>Built-in</td><td>None</td></tr>
+											<tr><td>Embeddable</td><td>Yes — add NuGet package, 3 lines of code</td><td>No (separate service)</td><td>Yes — built into ASP.NET Core</td></tr>
+											<tr><td>Pagination</td><td>Built-in cursor &amp; offset pagination</td><td>Pagination available</td><td>None</td></tr>
+											<tr><td>Heartbeat</td><td>Bidirectional 30s interval</td><td>Yes</td><td>Keep-alive only</td></tr>
+											<tr><td>Vendor Lock-in</td><td>None</td><td>Complete</td><td>ASP.NET Core ecosystem</td></tr>
+										</tbody>
+									</table>
+
+									<h5 class="m-t-30">What OpenSync provides that Twilio Sync doesn't</h5>
+									<ul>
+										<li>Self-hosted, open-source — no vendor lock-in, no per-operation costs</li>
+										<li>Direct database access — own your data completely</li>
+										<li>Multiple transports — SSE and Long-Polling alongside WebSocket</li>
+										<li>Optimistic concurrency with revision-based conflict detection (Twilio uses last-write-wins)</li>
+										<li>Embeddable as a NuGet package in any ASP.NET Core app</li>
+										<li>Pluggable database backends (PostgreSQL, SQLite, SQL Server)</li>
+									</ul>
+
+									<h5 class="m-t-30">What OpenSync provides that SignalR doesn't</h5>
+									<ul>
+										<li>5 high-level sync primitives (Documents, Lists, Maps, Streams, Channels) — SignalR only has RPC Hubs</li>
+										<li>Full REST API for CRUD operations on all primitives</li>
+										<li>Data persistence with PostgreSQL/SQL Server — SignalR is purely in-memory</li>
+										<li>Optimistic concurrency and revision tracking</li>
+										<li>TTL expiry for automatic data cleanup</li>
+										<li>Built-in JWT/API key authentication with scoped permissions</li>
+										<li>Channel presence with metadata and member tracking</li>
+										<li>Rate limiting out of the box</li>
+									</ul>
 								</div>
 							</div>
 						</div>
