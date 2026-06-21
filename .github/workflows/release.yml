@@ -35,10 +35,8 @@ jobs:
         run: |
           dotnet nuget push nupkgs/output/OpenSync.AspNetCore.1.0.0.nupkg --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" --api-key ${{ secrets.NUGET_AUTH_TOKEN }} --skip-duplicate
 
-      - name: Publish to NuGet.org (Trusted Publishing)
-        run: dotnet nuget push nupkgs/output/OpenSync.AspNetCore.1.0.0.nupkg --source "https://api.nuget.org/v3/index.json" --skip-duplicate
-        env:
-          NUGET_EXTENSION_FLOW_OIDC: true
+      - name: Publish to NuGet.org
+        run: dotnet nuget push nupkgs/output/OpenSync.AspNetCore.1.0.0.nupkg --source "https://api.nuget.org/v3/index.json" --api-key ${{ secrets.NUGET_ORG_API_KEY }} --skip-duplicate
 
       - name: Release
         uses: softprops/action-gh-release@v2
