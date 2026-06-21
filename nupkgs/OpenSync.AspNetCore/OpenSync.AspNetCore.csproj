@@ -8,9 +8,9 @@
     <Title>OpenSync ASP.NET Core Integration</Title>
     <Description>Embed OpenSync real-time sync infrastructure in any ASP.NET Core application. All dependencies bundled.</Description>
     <PackageTags>realtime;sync;websocket;aspnetcore;opensync</PackageTags>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/Abubakarstu/OpenSync</PackageProjectUrl>
+    <PackageProjectUrl>https://www.linkedin.com/in/muhammadabubakar-dotnetdeveloper/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Abubakarstu/OpenSync</RepositoryUrl>
     <Authors>Muhammad Abubakar</Authors>
     <Company>Muhammad Abubakar</Company>
@@ -20,8 +20,13 @@
     <NuspecProperties>repository=https://github.com/Abubakarstu/OpenSync</NuspecProperties>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <NoPackageAnalysis>true</NoPackageAnalysis>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\OpenSync.Core\OpenSync.Core.csproj" />
