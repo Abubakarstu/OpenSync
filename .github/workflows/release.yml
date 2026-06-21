@@ -35,14 +35,11 @@ jobs:
         run: |
           dotnet nuget push nupkgs/output/OpenSync.AspNetCore.1.0.0.nupkg --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" --api-key ${{ secrets.NUGET_AUTH_TOKEN }} --skip-duplicate
 
-      - name: Setup .NET 9 (for OIDC push)
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 9.0.x
-
-      - name: Publish to NuGet.org
+      - name: Publish to NuGet.org (Trusted Publishing)
         run: |
-          dotnet nuget push nupkgs/output/OpenSync.AspNetCore.1.0.0.nupkg --source "https://api.nuget.org/v3/index.json" --skip-duplicate
+          $tokenUrl = "$env:ACTIONS_ID_TOKEN_REQUEST_URL&audience=api://NuGetService"
+          $oidcToken = Invoke-RestMethod -Uri $tokenUrl -Headers @{ "Authorization" = "Bearer $env:ACTIONS_ID_TOKEN_REQUEST_TOKEN" } -UseBasicParsing
+          dotnet nuget push nupkgs/output/OpenSync.AspNetCore.1.0.0.nupkg --source "https://api.nuget.org/v3/index.json" --api-key $oidcToken.value --skip-duplicate
 
       - name: Release
         uses: softprops/action-gh-release@v2
