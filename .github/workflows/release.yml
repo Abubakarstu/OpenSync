@@ -35,9 +35,13 @@ jobs:
         run: |
           dotnet nuget push nupkgs/output/OpenSync.AspNetCore.1.0.0.nupkg --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" --api-key ${{ secrets.NUGET_AUTH_TOKEN }} --skip-duplicate
 
+      - name: Install NuGet CLI (OIDC support)
+        run: |
+          dotnet tool install --global NuGet.CommandLine --version 6.12.1
+
       - name: Publish to NuGet.org
         run: |
-          dotnet nuget push nupkgs/output/OpenSync.AspNetCore.1.0.0.nupkg --source "https://api.nuget.org/v3/index.json" --skip-duplicate
+          nuget push nupkgs/output/OpenSync.AspNetCore.1.0.0.nupkg -Source "https://api.nuget.org/v3/index.json" -SkipDuplicate
 
       - name: Release
         uses: softprops/action-gh-release@v2
