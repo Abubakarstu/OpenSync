@@ -174,12 +174,18 @@ POST   /tokens             Generate JWT token
 
 ---
 
+## Documentation
+
+| Category | Link |
+|----------|------|
+| **User Manual** | [docs/UserManual/](docs/UserManual/README.md) — quick start, config, API, SDK, examples |
+| **Development** | [docs/Development/](docs/Development/README.md) — architecture, deployment, contributing |
+
 ## NuGet Packages
 
 | Package | Description |
 |---------|-------------|
 | `OpenSync.AspNetCore` | Embed OpenSync server in any ASP.NET Core app |
-| `OpenSync.Sdk` | .NET client SDK for connecting to OpenSync |
 
 ---
 

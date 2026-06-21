@@ -21,6 +21,11 @@ Senior .NET Developer
 - **Heartbeat** — connection health monitoring
 - **Single package** — all dependencies bundled, zero external NuGet references
 
+## Full Documentation
+
+- [User Manual](https://github.com/Abubakarstu/OpenSync/blob/main/docs/UserManual/README.md) — getting started, configuration, API reference, client SDK, examples
+- [Development Guide](https://github.com/Abubakarstu/OpenSync/blob/main/docs/Development/README.md) — architecture, deployment, contributing
+
 ## Quick Start
 
 ### 1. Install

@@ -33,4 +33,4 @@ docker run -p 5000:8080 opensync:latest
 
 ## Configuration
 
-See [CONFIGURATION.md](CONFIGURATION.md) for full options.
+See [Configuration](../UserManual/GettingStarted.md) for full options.

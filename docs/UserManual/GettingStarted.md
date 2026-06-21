@@ -1,6 +1,26 @@
-# OpenSync Configuration
+# Getting Started
 
-## appsettings.json
+## Installation
+
+### Embed server in your app
+
+```bash
+dotnet add package OpenSync.AspNetCore
+```
+
+### Standalone server
+
+```bash
+git clone https://github.com/Abubakarstu/OpenSync.git
+cd OpenSync/src/OpenSync.Api
+dotnet run
+```
+
+Swagger UI: `https://localhost:5001/swagger`
+
+## Configuration
+
+### appsettings.json
 
 ```json
 {
@@ -38,7 +58,7 @@
 }
 ```
 
-## Database Providers
+### Database Providers
 
 | Provider | Value | Notes |
 |----------|-------|-------|
@@ -46,9 +66,7 @@
 | SQLite | `Sqlite` | Development only |
 | SQL Server | `SqlServer` | Alternative |
 
-## Embedding Configuration
-
-When embedding via `OpenSync.AspNetCore`:
+### Embedding Configuration
 
 ```csharp
 // From appsettings.json
@@ -64,7 +82,7 @@ builder.Services.AddOpenSync(options =>
 });
 ```
 
-## Environment Variables
+### Environment Variables
 
 | Variable | Overrides |
 |----------|-----------|
@@ -72,3 +90,20 @@ builder.Services.AddOpenSync(options =>
 | `OpenSync__Database__Provider` | Database provider |
 | `OpenSync__Backplane__Type` | Backplane type |
 | `OpenSync__Limits__MaxDocumentSizeBytes` | Max document size |
+
+## Program.cs Setup
+
+```csharp
+using OpenSync.AspNetCore.Extensions;
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddOpenSync(builder.Configuration);
+
+var app = builder.Build();
+
+app.UseWebSockets();
+app.UseOpenSync();
+
+app.Run();
+```

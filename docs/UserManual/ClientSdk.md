@@ -1,4 +1,4 @@
-# OpenSync SDK
+# Client SDK
 
 ## .NET Client SDK
 
@@ -7,10 +7,8 @@ Install: `dotnet add package OpenSync.Sdk`
 ```csharp
 using OpenSync.Sdk;
 
-// Create client with token provider
 var tokenProvider = new TokenProvider(async () =>
 {
-    // Fetch a token from your auth endpoint
     var httpClient = new HttpClient();
     var response = await httpClient.PostAsJsonAsync("https://your-server/api/v1/sync/tokens",
         new { identity = "user-123" });

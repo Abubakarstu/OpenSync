@@ -1,4 +1,4 @@
-# OpenSync REST API
+# REST API Reference
 
 Base URL: `/api/v1/sync/services/{serviceId}`
 
@@ -80,7 +80,7 @@ POST /api/v1/sync/services/{serviceId}/documents
 | PUT | `/lists/{id}/items/{itemId}` | Update item |
 | DELETE | `/lists/{id}/items/{itemId}` | Remove item |
 
-Query params for listing: `?page=0&page_size=50`
+Query params: `?page=0&page_size=50`
 
 ## Maps
 

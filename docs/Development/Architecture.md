@@ -1,4 +1,4 @@
-# OpenSync Architecture
+# Architecture
 
 ## Overview
 
@@ -30,6 +30,27 @@ OpenSync is a general-purpose real-time data synchronization library built on .N
 - Middleware for auth, rate limiting, correlation IDs, error handling
 - WebSocket endpoint at `/ws`
 
+## Project Structure
+
+```
+src/
+  OpenSync.Core/          Domain models, interfaces
+  OpenSync.Application/   CQRS commands/queries, handlers
+  OpenSync.Infrastructure/ EF Core, transports, backplane
+  OpenSync.Api/           ASP.NET Core controllers, middleware
+nupkgs/
+  OpenSync.AspNetCore/    Single NuGet package bundling all layers
+samples/
+  OpenSync.Demo/          Demo application
+  OpenSync.Demo.Minimal/  Minimal demo using only NuGet package
+tests/
+  OpenSync.Core.Tests/
+  OpenSync.Application.Tests/
+  OpenSync.Infrastructure.Tests/
+  OpenSync.Api.Tests/
+  OpenSync.IntegrationTests/
+```
+
 ## Real-Time Event Flow
 
 1. Client sends command via REST API or WebSocket message
@@ -43,8 +64,10 @@ OpenSync is a general-purpose real-time data synchronization library built on .N
 
 ## Data Flow
 
+```
 Client -> REST/WS -> Controller -> MediatR -> Handler -> Repository -> EF Core -> Database
                                          |
                                     Domain Event
                                          |
                               EventPublisher -> EventDispatcher -> FanOut -> Transports -> Clients
+```
