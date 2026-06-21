@@ -1,0 +1,943 @@
+<!--========================================================= 
+    Item: OpenSync Package Wiki
+    Author: Muhammad Abubakar
+    Template: Guidex - Online Documentation HTML Template
+ ============================================================-->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords"
+		content="opensync, realtime, sync, documentation, dotnet, aspnetcore, websocket, nuget">
+	<meta name="description" content="OpenSync — Real-Time Data Synchronization Library for .NET 8.">
+	<meta name="author" content="Muhammad Abubakar">
+
+	<title>OpenSync — Package Documentation</title>
+
+	<!-- App favicon -->
+	<link rel="shortcut icon" href="assets/img/favicon/favicon.ico">
+
+	<!-- Icon CSS -->
+	<link href="assets/css/vendor/materialdesignicons.min.css" rel="stylesheet">
+	<link href="assets/css/vendor/remixicon.css" rel="stylesheet">
+
+	<!-- Vendor -->
+	<link href="assets/css/vendor/bootstrap.min.css" rel="stylesheet">
+	<link href="assets/css/vendor/prism.css" rel="stylesheet">
+
+	<!-- Main CSS -->
+	<link id="mainCss" href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+	<main class="wrapper sb-default">
+		<!-- Loader -->
+		<div id="gx-overlay">
+			<div class="gx-ellipsis">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+
+		<!-- Header -->
+		<header class="gx-header">
+			<div class="container-fluid">
+				<div class="gx-header-items">
+					<div class="left-header">
+						
+					</div>
+					<div class="right-header">
+						<a href="javascript:void(0)" class="btn-topic m-r-5">
+							<i class="ri-menu-2-line"></i>
+							<p class="none">hello</p>
+						</a>
+						<a href="https://www.nuget.org/packages/OpenSync.AspNetCore" target="_blank" class="gx-btn-primary">NuGet v1.0.2</a>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<!-- main content -->
+		<div class="gx-main-content">
+			<div class="container">
+				<div class="gx-banner-auth gx-card">
+					<div class="gx-detail">
+						<div class="gx-image" style="width:180px;height:180px;background:#3b82f6;border-radius:24px;display:flex;align-items:center;justify-content:center;font-size:72px;color:#fff;font-weight:800;">
+							OS
+						</div>
+						<ul class="auth-detail">
+							<li><strong>Package : </strong>&nbsp; OpenSync.AspNetCore</li>
+							<li><strong>Version : </strong>&nbsp; 1.0.2</li>
+							<li><strong>Author : </strong>&nbsp; Muhammad Abubakar</li>
+							<li><strong>License : </strong>&nbsp; MIT</li>
+						</ul>
+					</div>
+					<ul class="auth-detail">
+						<li><strong>.NET : </strong>&nbsp; 8.0</li>
+						<li class="rating"><strong>Rating : </strong>&nbsp; <i class="ri-star-fill"></i> 5.0</li>
+					</ul>
+				</div>
+				<div class="gx-page-title gx-page-title-2">
+					<div class="gx-breadcrumb">
+						<h5>OpenSync.AspNetCore</h5>
+						<ul>
+							<li><a href="index.html">OpenSync</a></li>
+							<li>Documentation</li>
+						</ul>
+					</div>
+				</div>
+				<div class="row sections">
+					<div class="gx-side-overlay"></div>
+					<div class="col-xl-3 col-md-12 gx-topic">
+						<div class="gx-card topic-sidebar">
+							<div class="gx-card-header">
+								<h4 class="gx-card-title">Topics</h4>
+							</div>
+							<div class="gx-card-content gx-topic-list">
+								<nav>
+									<ul class="gx-sb-list">
+										<li class="gx-sb-item sb-drop-item load-active">
+											<a href="javascript:void(0)" class="gx-drop-toggle">
+												<i class="ri-dashboard-3-line"></i>
+												<span class="condense">Getting Started<i
+														class="drop-arrow ri-arrow-down-s-line"></i></span>
+											</a>
+											<ul class="gx-sb-drop condense" style="display: block;">
+												<li class="list"><a href="#gx_intro" class="gx-page-link drop"><i
+															class="ri-record-circle-line"></i>Introduction</a></li>
+												<li class="list"><a href="#gx_features" class="gx-page-link drop"><i
+															class="ri-record-circle-line"></i>Core Features</a></li>
+												<li class="list"><a href="#gx_quickstart" class="gx-page-link drop"><i
+															class="ri-record-circle-line"></i>Quick Start</a></li>
+												<li class="list"><a href="#gx_nuget" class="gx-page-link drop"><i
+															class="ri-record-circle-line"></i>NuGet Package</a></li>
+											</ul>
+										</li>
+										<li class="gx-sb-title condense">User Manual</li>
+										<li class="gx-sb-item sb-drop-item">
+											<a href="javascript:void(0)" class="gx-drop-toggle">
+												<i class="ri-file-text-line"></i>
+												<span class="condense">Configuration<i
+														class="drop-arrow ri-arrow-down-s-line"></i></span>
+											</a>
+											<ul class="gx-sb-drop condense">
+												<li class="list"><a href="#gx_config" class="gx-page-link drop"><i
+															class="ri-record-circle-line"></i>appsettings.json</a></li>
+												<li class="list"><a href="#gx_env" class="gx-page-link drop"><i
+															class="ri-record-circle-line"></i>Environment Variables</a></li>
+												<li class="list"><a href="#gx_embed" class="gx-page-link drop"><i
+															class="ri-record-circle-line"></i>Embedding Options</a></li>
+											</ul>
+										</li>
+										<li class="gx-sb-item">
+											<a href="#gx_api" class="gx-page-link">
+												<i class="ri-code-s-slash-line"></i><span class="condense"><span
+														class="hover-title">REST API</span> </span>
+											</a>
+										</li>
+										<li class="gx-sb-item">
+											<a href="#gx_sdk" class="gx-page-link">
+												<i class="ri-smartphone-line"></i><span class="condense"><span
+														class="hover-title">Client SDK</span> </span>
+											</a>
+										</li>
+										<li class="gx-sb-item sb-drop-item">
+											<a href="javascript:void(0)" class="gx-drop-toggle">
+												<i class="ri-open-source-line"></i>
+												<span class="condense">Examples<i
+														class="drop-arrow ri-arrow-down-s-line"></i></span>
+											</a>
+											<ul class="gx-sb-drop condense">
+												<li class="list"><a href="#gx_chat" class="gx-page-link drop"><i
+															class="ri-record-circle-line"></i>Chat App</a></li>
+												<li class="list"><a href="#gx_dashboard" class="gx-page-link drop"><i
+															class="ri-record-circle-line"></i>Live Dashboard</a></li>
+											</ul>
+										</li>
+										<li class="gx-sb-title condense">Development</li>
+										<li class="gx-sb-item sb-drop-item">
+											<a href="javascript:void(0)" class="gx-drop-toggle">
+												<i class="ri-install-line"></i>
+												<span class="condense">Architecture<i
+														class="drop-arrow ri-arrow-down-s-line"></i></span>
+											</a>
+											<ul class="gx-sb-drop condense">
+												<li class="list">
+													<a href="#gx_layers" class="gx-page-link drop">
+														<i class="ri-record-circle-line"></i>
+														Architecture Layers
+													</a>
+												</li>
+												<li class="list">
+													<a href="#gx_flow" class="gx-page-link drop">
+														<i class="ri-record-circle-line"></i>
+														Event Flow
+													</a>
+												</li>
+											</ul>
+										</li>
+										<li class="gx-sb-item">
+											<a href="#gx_deploy" class="gx-page-link">
+												<i class="ri-server-line"></i><span class="condense"><span
+														class="hover-title">Deployment</span> </span>
+											</a>
+										</li>
+										<li class="gx-sb-item">
+											<a href="#gx_contributing" class="gx-page-link">
+												<i class="ri-git-branch-line"></i><span class="condense"><span
+														class="hover-title">Contributing</span> </span>
+											</a>
+										</li>
+										<li class="gx-sb-title condense">Info</li>
+										<li class="gx-sb-item">
+											<a href="#gx_changelog" class="gx-page-link">
+												<i class="ri-time-line"></i><span class="condense"><span
+														class="hover-title">Change Log</span> </span>
+											</a>
+										</li>
+										<li class="gx-sb-item">
+											<a href="#gx_author" class="gx-page-link">
+												<i class="ri-star-smile-line"></i>
+												<span class="condense">
+													<span class="hover-title">Author</span>
+												</span>
+											</a>
+										</li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-9 col-md-12">
+						<!-- Introduction -->
+						<div class="gx-block" id="gx_intro">
+							<div class="gx-card gx-page-block">
+								<div class="gx-card-header header-575">
+									<h4 class="gx-card-title">Introduction</h4>
+									<div class="header-tools">
+										<a href="#" class="m-r-10 gx-full-card">
+											<i class="ri-fullscreen-line" title="Full Screen"></i></a>
+									</div>
+								</div>
+								<div class="gx-card-content">
+									<div class="intro">
+										<p>Welcome to the OpenSync documentation! OpenSync is a <strong>general-purpose real-time data synchronization library</strong> for .NET 8 built with Clean Architecture.</p>
+										<h1 class="main-heding">OpenSync — Real-Time Sync Library for .NET</h1>
+										<p>OpenSync provides <strong>5 primitives</strong> — Documents, Lists, Maps, Streams, and Channels — that cover every real-time use case from chat and collaborative editing to live dashboards and IoT.</p>
+										<p>Run it as a <strong>standalone microservice</strong> or <strong>embed it in any ASP.NET Core app</strong> in 3 lines of code. Three transport options (WebSocket, SSE, HTTP Long-Polling) give clients flexibility.</p>
+										<p>The library follows Clean Architecture (Core → Application → Infrastructure → API) with CQRS via MediatR, EF Core persistence (PostgreSQL primary), and optional Redis backplane for multi-instance scaling.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Core Features -->
+						<div class="gx-block" id="gx_features">
+							<div class="gx-card gx-page-block">
+								<div class="gx-card-header header-575">
+									<h4 class="gx-card-title">Core Features</h4>
+									<div class="header-tools">
+										<a href="#" class="m-r-10 gx-full-card">
+											<i class="ri-fullscreen-line" title="Full Screen"></i></a>
+									</div>
+								</div>
+								<div class="gx-card-content">
+									<div class="intro">
+										<div class="row mb-m-24">
+											<div class="col-md-3">
+												<div class="feature-card">
+													<i class="ri-file-text-line" style="font-size:48px;color:#3b82f6;"></i>
+													<h5>5 Primitives</h5>
+													<p style="font-size:13px;">Documents, Lists, Maps, Streams, Channels</p>
+												</div>
+											</div>
+											<div class="col-md-3">
+												<div class="feature-card">
+													<i class="ri-wifi-line" style="font-size:48px;color:#3b82f6;"></i>
+													<h5>3 Transports</h5>
+													<p style="font-size:13px;">WebSocket, SSE, HTTP Long-Polling</p>
+												</div>
+											</div>
+											<div class="col-md-3">
+												<div class="feature-card">
+													<i class="ri-stack-line" style="font-size:48px;color:#3b82f6;"></i>
+													<h5>Clean Architecture</h5>
+													<p style="font-size:13px;">Core → Application → Infrastructure → API</p>
+												</div>
+											</div>
+											<div class="col-md-3">
+												<div class="feature-card">
+													<i class="ri-database-2-line" style="font-size:48px;color:#3b82f6;"></i>
+													<h5>PostgreSQL + EF Core</h5>
+													<p style="font-size:13px;">SQLite dev, SQL Server alt</p>
+												</div>
+											</div>
+											<div class="col-md-3">
+												<div class="feature-card">
+													<i class="ri-shield-check-line" style="font-size:48px;color:#3b82f6;"></i>
+													<h5>Optimistic Concurrency</h5>
+													<p style="font-size:13px;">Revision-based conflict detection</p>
+												</div>
+											</div>
+											<div class="col-md-3">
+												<div class="feature-card">
+													<i class="ri-cloud-line" style="font-size:48px;color:#3b82f6;"></i>
+													<h5>Real-Time Events</h5>
+													<p style="font-size:13px;">Push notifications to subscribed clients</p>
+												</div>
+											</div>
+											<div class="col-md-3">
+												<div class="feature-card">
+													<i class="ri-group-line" style="font-size:48px;color:#3b82f6;"></i>
+													<h5>Channel Presence</h5>
+													<p style="font-size:13px;">Join/leave, metadata, member tracking</p>
+												</div>
+											</div>
+											<div class="col-md-3">
+												<div class="feature-card">
+													<i class="ri-timer-flash-line" style="font-size:48px;color:#3b82f6;"></i>
+													<h5>TTL Expiry</h5>
+													<p style="font-size:13px;">Auto-expire with configurable cleanup</p>
+												</div>
+											</div>
+											<div class="col-md-3">
+												<div class="feature-card">
+													<i class="ri-heart-pulse-line" style="font-size:48px;color:#3b82f6;"></i>
+													<h5>Heartbeat</h5>
+													<p style="font-size:13px;">Bidirectional ping/pong every 30s</p>
+												</div>
+											</div>
+											<div class="col-md-3">
+												<div class="feature-card">
+													<i class="ri-key-line" style="font-size:48px;color:#3b82f6;"></i>
+													<h5>JWT Auth</h5>
+													<p style="font-size:13px;">Scoped permissions + API keys</p>
+												</div>
+											</div>
+											<div class="col-md-3">
+												<div class="feature-card">
+													<i class="ri-redit-line" style="font-size:48px;color:#3b82f6;"></i>
+													<h5>Redis Backplane</h5>
+													<p style="font-size:13px;">Multi-instance scaling</p>
+												</div>
+											</div>
+											<div class="col-md-3">
+												<div class="feature-card">
+													<i class="ri-box-3-line" style="font-size:48px;color:#3b82f6;"></i>
+													<h5>Single NuGet Package</h5>
+													<p style="font-size:13px;">All dependencies bundled</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Quick Start -->
+						<div class="gx-block" id="gx_quickstart">
+							<div class="gx-card gx-page-block">
+								<div class="gx-card-header header-575">
+									<h4 class="gx-card-title">Quick Start</h4>
+									<div class="header-tools">
+										<a href="#" class="m-r-10 gx-full-card">
+											<i class="ri-fullscreen-line" title="Full Screen"></i></a>
+									</div>
+								</div>
+								<div class="gx-card-content">
+									<h5>Embed in your ASP.NET Core app</h5>
+<pre class="language-bash">
+<code class="language-bash">dotnet add package OpenSync.AspNetCore</code>
+</pre>
+<pre class="language-csharp">
+<code class="language-csharp">// Program.cs
+using OpenSync.AspNetCore.Extensions;
+
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddOpenSync(builder.Configuration);
+
+var app = builder.Build();
+app.UseWebSockets();
+app.UseOpenSync();
+app.Run();</code>
+</pre>
+									<h5 class="m-t-30">Standalone server</h5>
+<pre class="language-bash">
+<code class="language-bash">git clone https://github.com/Abubakarstu/OpenSync.git
+cd OpenSync/src/OpenSync.Api
+dotnet run</code>
+</pre>
+									<p>Swagger UI: <code>https://localhost:5001/swagger</code></p>
+								</div>
+							</div>
+						</div>
+						<!-- NuGet Package -->
+						<div class="gx-block" id="gx_nuget">
+							<div class="gx-card gx-page-block">
+								<div class="gx-card-header header-575">
+									<h4 class="gx-card-title">NuGet Package</h4>
+									<div class="header-tools">
+										<a href="#" class="m-r-10 gx-full-card">
+											<i class="ri-fullscreen-line" title="Full Screen"></i></a>
+									</div>
+								</div>
+								<div class="gx-card-content">
+									<div class="intro">
+										<p>OpenSync is distributed as a single <strong>OpenSync.AspNetCore</strong> NuGet package that bundles all 4 source projects and their transitive dependencies.</p>
+										<table class="table">
+											<thead>
+												<tr>
+													<th>Package</th>
+													<th>Description</th>
+													<th>Link</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td><code>OpenSync.AspNetCore</code></td>
+													<td>Embed OpenSync server in any ASP.NET Core app</td>
+													<td><a href="https://www.nuget.org/packages/OpenSync.AspNetCore" target="_blank">NuGet.org</a></td>
+												</tr>
+											</tbody>
+										</table>
+										<h5>Bundled Projects</h5>
+										<ul>
+											<li><strong>OpenSync.Core</strong> — Domain models, interfaces, primitives</li>
+											<li><strong>OpenSync.Application</strong> — CQRS commands/queries, MediatR handlers, validation</li>
+											<li><strong>OpenSync.Infrastructure</strong> — EF Core, PostgreSQL, Redis, JWT auth, Serilog</li>
+											<li><strong>OpenSync.Api</strong> — ASP.NET Core controllers, WebSocket middleware, SSE</li>
+										</ul>
+										<h5>Bundled Dependencies</h5>
+										<p>EF Core, MediatR, Npgsql, Mapster, FluentValidation, Serilog, Swashbuckle, StackExchange.Redis, and more — all included in the single package with zero external NuGet references.</p>
+<pre class="language-bash">
+<code class="language-bash">dotnet add package OpenSync.AspNetCore</code>
+</pre>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!------------------------------------------------------------------ User Manual ----------------------------------------------------------------->
+
+						<!-- Configuration -->
+						<div class="gx-block" id="gx_config">
+							<div class="gx-card gx-page-block">
+								<div class="gx-card-header header-575">
+									<h4 class="gx-card-title">Configuration — appsettings.json</h4>
+									<div class="header-tools">
+										<a href="javascript:void(0)" class="m-r-10 gx-full-card">
+											<i class="ri-fullscreen-line" title="Full Screen"></i></a>
+									</div>
+								</div>
+								<div class="gx-card-content">
+<pre class="language-json">
+<code class="language-json">{
+  "OpenSync": {
+    "Database": {
+      "Provider": "PostgreSQL",
+      "ConnectionString": "Host=localhost;Database=opensync;Username=postgres;Password=postgres"
+    },
+    "Limits": {
+      "MaxDocumentSizeBytes": 16384,
+      "MaxListItemDataSizeBytes": 16384,
+      "MaxMapItemDataSizeBytes": 16384,
+      "MaxStreamMessageSizeBytes": 4096,
+      "MaxListItems": 1000,
+      "MaxMapItems": 10000,
+      "MaxSubscriptionsPerConnection": 200,
+      "MaxConnectionsPerService": 10000,
+      "DefaultRateLimitPerSecond": 100
+    },
+    "Heartbeat": {
+      "IntervalSeconds": 30,
+      "TimeoutSeconds": 10
+    },
+    "Ttl": {
+      "CleanupIntervalSeconds": 60
+    },
+    "Backplane": {
+      "Type": "InProcess",
+      "Redis": {
+        "ConnectionString": "localhost:6379",
+        "ChannelPrefix": "opensync:"
+      }
+    }
+  }
+}</code>
+</pre>
+									<h5>Database Providers</h5>
+									<table class="table">
+										<thead>
+											<tr><th>Provider</th><th>Value</th><th>Notes</th></tr>
+										</thead>
+										<tbody>
+											<tr><td>PostgreSQL</td><td><code>PostgreSQL</code></td><td>Default, production</td></tr>
+											<tr><td>SQLite</td><td><code>Sqlite</code></td><td>Development only</td></tr>
+											<tr><td>SQL Server</td><td><code>SqlServer</code></td><td>Alternative</td></tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<!-- Environment Variables -->
+						<div class="gx-block" id="gx_env">
+							<div class="gx-card gx-page-block">
+								<div class="gx-card-header header-575">
+									<h4 class="gx-card-title">Environment Variables</h4>
+									<div class="header-tools">
+										<a href="javascript:void(0)" class="m-r-10 gx-full-card">
+											<i class="ri-fullscreen-line" title="Full Screen"></i></a>
+									</div>
+								</div>
+								<div class="gx-card-content">
+									<table class="table">
+										<thead>
+											<tr><th>Variable</th><th>Overrides</th></tr>
+										</thead>
+										<tbody>
+											<tr><td><code>ConnectionStrings__OpenSync</code></td><td>Database connection string</td></tr>
+											<tr><td><code>OpenSync__Database__Provider</code></td><td>Database provider</td></tr>
+											<tr><td><code>OpenSync__Backplane__Type</code></td><td>Backplane type</td></tr>
+											<tr><td><code>OpenSync__Limits__MaxDocumentSizeBytes</code></td><td>Max document size</td></tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<!-- Embedding Options -->
+						<div class="gx-block" id="gx_embed">
+							<div class="gx-card gx-page-block">
+								<div class="gx-card-header header-575">
+									<h4 class="gx-card-title">Embedding Options</h4>
+									<div class="header-tools">
+										<a href="javascript:void(0)" class="m-r-10 gx-full-card">
+											<i class="ri-fullscreen-line" title="Full Screen"></i></a>
+									</div>
+								</div>
+								<div class="gx-card-content">
+<pre class="language-csharp">
+<code class="language-csharp">// From appsettings.json
+builder.Services.AddOpenSync(configuration);
+
+// Or inline with options
+builder.Services.AddOpenSync(options =>
+{
+    options.Database.Provider = "PostgreSQL";
+    options.Database.ConnectionString = "Host=localhost;Database=opensync";
+    options.Limits.MaxDocumentSizeBytes = 32768;
+    options.Heartbeat.IntervalSeconds = 15;
+});</code>
+</pre>
+								</div>
+							</div>
+						</div>
+
+						<!-- REST API -->
+						<div class="gx-block" id="gx_api">
+							<div class="gx-card gx-page-block">
+								<div class="gx-card-header header-575">
+									<h4 class="gx-card-title">REST API Reference</h4>
+									<div class="header-tools">
+										<a href="javascript:void(0)" class="m-r-10 gx-full-card">
+											<i class="ri-fullscreen-line" title="Full Screen"></i></a>
+									</div>
+								</div>
+								<div class="gx-card-content">
+									<p>Base URL: <code>/api/v1/sync/services/{serviceId}</code></p>
+
+									<h5>Authentication — Generate Token</h5>
+<pre class="language-bash"><code class="language-bash">POST /api/v1/sync/tokens</code></pre>
+<pre class="language-json"><code class="language-json">{
+  "identity": "user-123",
+  "ttl_seconds": 3600,
+  "permissions": {
+    "documents": ["read", "write"],
+    "lists": ["read"],
+    "maps": ["read", "write"],
+    "channels": ["read", "write"],
+    "streams": ["publish"]
+  }
+}</code></pre>
+
+									<h5 class="m-t-30">Documents</h5>
+									<table class="table">
+										<thead><tr><th>Method</th><th>Endpoint</th><th>Description</th></tr></thead>
+										<tbody>
+											<tr><td>POST</td><td><code>/documents</code></td><td>Create</td></tr>
+											<tr><td>GET</td><td><code>/documents</code></td><td>List</td></tr>
+											<tr><td>GET</td><td><code>/documents/{id}</code></td><td>Get</td></tr>
+											<tr><td>PATCH</td><td><code>/documents/{id}</code></td><td>Partial update</td></tr>
+											<tr><td>PUT</td><td><code>/documents/{id}</code></td><td>Full replace</td></tr>
+											<tr><td>DELETE</td><td><code>/documents/{id}</code></td><td>Delete</td></tr>
+										</tbody>
+									</table>
+
+									<h5>Lists</h5>
+									<table class="table">
+										<thead><tr><th>Method</th><th>Endpoint</th><th>Description</th></tr></thead>
+										<tbody>
+											<tr><td>POST</td><td><code>/lists</code></td><td>Create</td></tr>
+											<tr><td>GET</td><td><code>/lists</code></td><td>List</td></tr>
+											<tr><td>POST</td><td><code>/lists/{id}/items</code></td><td>Append item</td></tr>
+											<tr><td>GET</td><td><code>/lists/{id}/items</code></td><td>List items</td></tr>
+											<tr><td>PUT</td><td><code>/lists/{id}/items/{itemId}</code></td><td>Update item</td></tr>
+											<tr><td>DELETE</td><td><code>/lists/{id}/items/{itemId}</code></td><td>Remove item</td></tr>
+										</tbody>
+									</table>
+									<p>Query params: <code>?page=0&page_size=50</code></p>
+
+									<h5>Maps</h5>
+									<table class="table">
+										<thead><tr><th>Method</th><th>Endpoint</th><th>Description</th></tr></thead>
+										<tbody>
+											<tr><td>PUT</td><td><code>/maps/{id}/items/{key}</code></td><td>Upsert item</td></tr>
+											<tr><td>GET</td><td><code>/maps/{id}/items</code></td><td>List items</td></tr>
+											<tr><td>GET</td><td><code>/maps/{id}/items/{key}</code></td><td>Get item</td></tr>
+											<tr><td>DELETE</td><td><code>/maps/{id}/items/{key}</code></td><td>Remove item</td></tr>
+										</tbody>
+									</table>
+
+									<h5>Streams</h5>
+									<table class="table">
+										<thead><tr><th>Method</th><th>Endpoint</th><th>Description</th></tr></thead>
+										<tbody>
+											<tr><td>POST</td><td><code>/streams</code></td><td>Create</td></tr>
+											<tr><td>POST</td><td><code>/streams/{id}/messages</code></td><td>Publish message</td></tr>
+										</tbody>
+									</table>
+
+									<h5>Channels</h5>
+									<table class="table">
+										<thead><tr><th>Method</th><th>Endpoint</th><th>Description</th></tr></thead>
+										<tbody>
+											<tr><td>POST</td><td><code>/channels</code></td><td>Create</td></tr>
+											<tr><td>POST</td><td><code>/channels/{id}/members</code></td><td>Join</td></tr>
+											<tr><td>GET</td><td><code>/channels/{id}/members</code></td><td>List members</td></tr>
+											<tr><td>POST</td><td><code>/channels/{id}/messages</code></td><td>Broadcast</td></tr>
+										</tbody>
+									</table>
+
+									<h5>Health</h5>
+									<table class="table">
+										<thead><tr><th>Method</th><th>Endpoint</th></tr></thead>
+										<tbody>
+											<tr><td>GET</td><td><code>/api/v1/sync/health</code></td></tr>
+											<tr><td>GET</td><td><code>/api/v1/sync/stats</code></td></tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<!-- Client SDK -->
+						<div class="gx-block" id="gx_sdk">
+							<div class="gx-card gx-page-block">
+								<div class="gx-card-header header-575">
+									<h4 class="gx-card-title">Client SDK</h4>
+									<div class="header-tools">
+										<a href="javascript:void(0)" class="m-r-10 gx-full-card">
+											<i class="ri-fullscreen-line" title="Full Screen"></i></a>
+									</div>
+								</div>
+								<div class="gx-card-content">
+									<h5>.NET Client</h5>
+<pre class="language-csharp"><code class="language-csharp">var client = new OpenSyncClient("https://localhost:5001", tokenProvider);
+
+// Document
+var doc = await client.Documents.GetOrCreateAsync("settings", new { theme = "dark" });
+doc.OnUpdated += (_, args) => Console.WriteLine($"Updated: {args.Data}");
+await doc.SetAsync(new { theme = "light", language = "en" });
+
+// Channel
+var channel = await client.Channels.GetOrCreateAsync("general");
+await channel.JoinAsync(new { name = "Alice" });
+channel.OnMessage += (_, args) => Console.WriteLine($"Chat: {args.Data}");
+await channel.SendMessageAsync(new { text = "Hello everyone!" });</code></pre>
+
+									<h5 class="m-t-30">JavaScript Client</h5>
+<pre class="language-javascript"><code class="language-javascript">const client = new OpenSyncClient('https://localhost:5001', {
+    getToken: async () => {
+        const res = await fetch('/api/v1/sync/tokens', {
+            method: 'POST',
+            body: JSON.stringify({ identity: 'user-123' })
+        });
+        const data = await res.json();
+        return data.data.token;
+    }
+});
+await client.connect();
+
+const doc = client.document('settings');
+doc.onUpdated = (data) => console.log('Doc updated:', data);
+await doc.set({ theme: 'dark' });</code></pre>
+								</div>
+							</div>
+						</div>
+						<!-- Chat App Example -->
+						<div class="gx-block" id="gx_chat">
+							<div class="gx-card gx-page-block">
+								<div class="gx-card-header header-575">
+									<h4 class="gx-card-title">Example — Chat App</h4>
+									<div class="header-tools">
+										<a href="#" class="m-r-10 gx-full-card">
+											<i class="ri-fullscreen-line" title="Full Screen"></i></a>
+									</div>
+								</div>
+								<div class="gx-card-content">
+<pre class="language-csharp"><code class="language-csharp">var client = new OpenSyncClient("https://localhost:5001", tokenProvider);
+
+var channel = await client.Channels.GetOrCreateAsync("lobby");
+await channel.JoinAsync(new { name = "Alice", avatar = "alice.png" });
+
+channel.OnMessage += (_, args) =>
+    Console.WriteLine($"[{args.Data["sender"]}] {args.Data["text"]}");
+
+channel.OnMemberJoined += (_, args) =>
+    Console.WriteLine($"{args.Metadata["name"]} joined");
+
+await channel.SendMessageAsync(new { sender = "Alice", text = "Hello!" });</code></pre>
+								</div>
+							</div>
+						</div>
+						<!-- Live Dashboard Example -->
+						<div class="gx-block" id="gx_dashboard">
+							<div class="gx-card gx-page-block">
+								<div class="gx-card-header header-575">
+									<h4 class="gx-card-title">Example — Live Dashboard</h4>
+									<div class="header-tools">
+										<a href="#" class="m-r-10 gx-full-card">
+											<i class="ri-fullscreen-line" title="Full Screen"></i></a>
+									</div>
+								</div>
+								<div class="gx-card-content">
+<pre class="language-csharp"><code class="language-csharp">// Server pushes metrics
+var doc = await client.Documents.GetOrCreateAsync("dashboard-metrics");
+await doc.SetAsync(new {
+    activeUsers = 1423, requestsPerSecond = 89, uptime = "99.97%"
+});</code></pre>
+<pre class="language-javascript"><code class="language-javascript">// JavaScript client receives updates
+const metrics = client.document('dashboard-metrics');
+metrics.onUpdated = (data) => {
+    document.getElementById('active-users').textContent = data.activeUsers;
+    document.getElementById('rps').textContent = data.requestsPerSecond;
+};</code></pre>
+								</div>
+							</div>
+						</div>
+
+						<!-- Architecture Layers -->
+						<div class="gx-block" id="gx_layers">
+							<div class="gx-card gx-page-block">
+								<div class="gx-card-header header-575">
+									<h4 class="gx-card-title">Architecture Layers</h4>
+									<div class="header-tools">
+										<a href="javascript:void(0)" class="m-r-10 gx-full-card">
+											<i class="ri-fullscreen-line" title="Full Screen"></i></a>
+									</div>
+								</div>
+								<div class="gx-card-content">
+<pre class="language-text"><code class="language-text">┌─────────────────────────────────────────────┐
+│              API / Presentation             │
+│  REST Endpoints · WebSocket Hub · SSE · LP  │
+├─────────────────────────────────────────────┤
+│               Application Layer             │
+│  Commands · Queries · Sync Orchestration    │
+├─────────────────────────────────────────────┤
+│                  Domain Layer               │
+│  SyncObject · Revision · TTL · Permissions  │
+├─────────────────────────────────────────────┤
+│               Infrastructure Layer          │
+│  EF Core · PostgreSQL · Identity · Cache    │
+└─────────────────────────────────────────────┘</code></pre>
+									<p><b>Core:</b> Domain entities & value objects (SyncObject, Revision, Subscription). <b>Application:</b> SyncOrchestrator, token generation, pagination. <b>Infrastructure:</b> EF Core (PostgreSQL), ASP.NET Identity, in-memory cache. <b>API:</b> Controllers, WebSocket (SignalR), SSE, Long-Polling middleware.</p>
+								</div>
+							</div>
+						</div>
+						<!-- Event Flow -->
+						<div class="gx-block" id="gx_flow">
+							<div class="gx-card gx-page-block">
+								<div class="gx-card-header header-575">
+									<h4 class="gx-card-title">Event Flow</h4>
+									<div class="header-tools">
+										<a href="javascript:void(0)" class="m-r-10 gx-full-card">
+											<i class="ri-fullscreen-line" title="Full Screen"></i></a>
+									</div>
+								</div>
+								<div class="gx-card-content">
+<pre class="language-text"><code class="language-text">Client A ──PUT──► Server ──► DB ──► SyncOrchestrator ──► Notify ──► Client B
+                    │                                           │
+                    ├── SSE  ◄──────────────────────────────────┘
+                    ├── WebSocket (SignalR)
+                    └── Long-Polling</code></pre>
+									<p>Client A writes → Server persists & updates revision → SyncOrchestrator resolves subscribers → Event dispatched via real-time transport to Client B. Optimistic concurrency: revision mismatch → 409 Conflict.</p>
+								</div>
+							</div>
+						</div>
+						<!-- Deployment -->
+						<div class="gx-block" id="gx_deploy">
+							<div class="gx-card gx-page-block">
+								<div class="gx-card-header header-575">
+									<h4 class="gx-card-title">Deployment</h4>
+									<div class="header-tools">
+										<a href="javascript:void(0)" class="m-r-10 gx-full-card">
+											<i class="ri-fullscreen-line" title="Full Screen"></i></a>
+									</div>
+								</div>
+								<div class="gx-card-content">
+									<h5>Docker</h5>
+<pre class="language-bash"><code class="language-bash"># Build
+docker build -t opensync-server .
+
+# Run with PostgreSQL
+docker run -d -p 5000:8080 \
+  -e ConnectionStrings__DefaultConnection="Host=pg;Database=opensync;User ID=postgres;Password=..." \
+  opensync-server</code></pre>
+									<h5 class="m-t-30">docker-compose</h5>
+<pre class="language-yaml"><code class="language-yaml">services:
+  api:
+    image: opensync-server
+    ports: ["5000:8080"]
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=pg;Database=opensync;...
+      - JwtSettings__Secret=your-jwt-secret
+    depends_on: [pg]
+  pg:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: opensync
+      POSTGRES_PASSWORD: your-password
+    volumes: ["pgdata:/var/lib/postgresql/data"]
+volumes: { pgdata: }</code></pre>
+									<h5 class="m-t-30">Cloud (Azure)</h5>
+									<p>Deploy the API as an Azure App Service, use Azure Database for PostgreSQL Flexible Server, and enable Azure SignalR Service for scaled-out WebSocket connections.</p>
+								</div>
+							</div>
+						</div>
+						<!-- Contributing -->
+						<div class="gx-block" id="gx_contributing">
+							<div class="gx-card gx-page-block">
+								<div class="gx-card-header header-575">
+									<h4 class="gx-card-title">Contributing</h4>
+									<div class="header-tools">
+										<a href="javascript:void(0)" class="m-r-10 gx-full-card">
+											<i class="ri-fullscreen-line" title="Full Screen"></i></a>
+									</div>
+								</div>
+								<div class="gx-card-content">
+									<ol>
+										<li>Fork the repo on GitHub</li>
+										<li>Create a feature branch (<code>git checkout -b feat/my-feature</code>)</li>
+										<li>Commit changes (<code>git commit -am "feat: add my feature"</code>)</li>
+										<li>Push the branch (<code>git push origin feat/my-feature</code>)</li>
+										<li>Open a Pull Request with a clear description</li>
+									</ol>
+									<p class="m-t-20">All contributions are welcome! Please open an issue first for major changes to discuss what you'd like to change.</p>
+								</div>
+							</div>
+						</div>
+
+						<!------------------------------------------------------------------ Change Log ----------------------------------------------------------------->
+
+						<!-- Version intro -->
+						<div class="gx-card gx-page-block" id="Change_log">
+							<div class="gx-card-content">
+								<div class="gx-log">
+									<p class="m-b-0">Changelog for the OpenSync project. All notable changes are documented here.</p>
+								</div>
+							</div>
+						</div>
+						<!-- Version block -->
+						<div class="gx-block">
+							<div class="gx-card gx-page-block">
+								<div class="gx-card-header header-575">
+									<h4 class="gx-card-title">Version 1.0.2</h4>
+									<small>June 2026</small>
+								</div>
+								<div class="gx-card-content">
+									<div class="gx-log">
+										<ul>
+											<li><i class="ri-record-circle-line"></i> Added NuGet package README with quick start and author info</li>
+											<li><i class="ri-record-circle-line"></i> Set PackageProjectUrl to author LinkedIn profile</li>
+											<li><i class="ri-record-circle-line"></i> Organized documentation into UserManual and Development folders</li>
+											<li><i class="ri-record-circle-line"></i> Created PackageWiki HTML documentation site</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Version block -->
+						<div class="gx-block">
+							<div class="gx-card gx-page-block">
+								<div class="gx-card-header header-575">
+									<h4 class="gx-card-title">Version 1.0.1</h4>
+									<small>June 2026</small>
+								</div>
+								<div class="gx-card-content">
+									<div class="gx-log">
+										<ul>
+											<li><i class="ri-record-circle-line"></i> First published NuGet.org release</li>
+											<li><i class="ri-record-circle-line"></i> GitHub Packages publish working</li>
+											<li><i class="ri-record-circle-line"></i> Dynamic version extraction in CI/CD</li>
+											<li><i class="ri-record-circle-line"></i> Minimal demo using published package</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Version block -->
+						<div class="gx-block">
+							<div class="gx-card gx-page-block">
+								<div class="gx-card-header header-575">
+									<h4 class="gx-card-title">Version 1.0.0</h4>
+									<small>Initial Release</small>
+								</div>
+								<div class="gx-card-content">
+									<div class="gx-log">
+										<ul>
+											<li><i class="ri-record-circle-line"></i> Clean Architecture project structure (Core, Application, Infrastructure, API)</li>
+											<li><i class="ri-record-circle-line"></i> REST API with Documents, Lists, Maps, Streams, Channels</li>
+											<li><i class="ri-record-circle-line"></i> Real-time: WebSocket (SignalR), SSE, Long-Polling</li>
+											<li><i class="ri-record-circle-line"></i> Optimistic concurrency via revisions</li>
+											<li><i class="ri-record-circle-line"></i> TTL expiry and heartbeat mechanism</li>
+											<li><i class="ri-record-circle-line"></i> PostgreSQL primary, SQLite for dev</li>
+											<li><i class="ri-record-circle-line"></i> JWT-based token authentication</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!------------------------------------------------------------------ Thank You ----------------------------------------------------------------->
+
+						<!-- Thank You -->
+						<div class="gx-card gx-page-block min-h-100" id="thanks">
+							<div class="gx-card-content">
+								<div class="gx-thanks">
+									<h2>Thank You</h2>
+									<p>Thank you for exploring <b>OpenSync</b>. If you find it useful, please give it a star on GitHub and share your feedback!</p>
+									<img src="assets/img/thanks/star.png" alt="thanks">
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Feature tools -->
+		</div>
+
+	</main>
+
+	<!-- Vendor Custom -->
+	<script src="assets/js/vendor/jquery-3.6.4.min.js"></script>
+	<script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+	<script src="assets/js/vendor/prism.js"></script>
+	<!-- Main Custom -->
+	<script src="assets/js/main.js"></script>
+</body>
+
+</html>
