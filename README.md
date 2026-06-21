@@ -178,6 +178,7 @@ POST   /tokens             Generate JWT token
 
 | Category | Link |
 |----------|------|
+| **Full Wiki** | [https://abubakarstu.github.io/OpenSync/](https://abubakarstu.github.io/OpenSync/) — hosted documentation site |
 | **User Manual** | [docs/UserManual/](docs/UserManual/README.md) — quick start, config, API, SDK, examples |
 | **Development** | [docs/Development/](docs/Development/README.md) — architecture, deployment, contributing |
 

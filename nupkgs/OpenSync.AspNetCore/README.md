@@ -23,6 +23,7 @@ Senior .NET Developer
 
 ## Full Documentation
 
+- [Hosted Wiki](https://abubakarstu.github.io/OpenSync/) — online documentation site
 - [User Manual](https://github.com/Abubakarstu/OpenSync/blob/main/docs/UserManual/README.md) — getting started, configuration, API reference, client SDK, examples
 - [Development Guide](https://github.com/Abubakarstu/OpenSync/blob/main/docs/Development/README.md) — architecture, deployment, contributing
 
