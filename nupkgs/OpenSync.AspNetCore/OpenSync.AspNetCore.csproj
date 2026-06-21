@@ -8,7 +8,7 @@
     <Title>OpenSync ASP.NET Core Integration</Title>
     <Description>Embed OpenSync real-time sync infrastructure in any ASP.NET Core application. All dependencies bundled.</Description>
     <PackageTags>realtime;sync;websocket;aspnetcore;opensync</PackageTags>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/Abubakarstu/OpenSync</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Abubakarstu/OpenSync</RepositoryUrl>
