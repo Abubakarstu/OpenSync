@@ -28,13 +28,9 @@ jobs:
       - name: Pack OpenSync.AspNetCore
         run: dotnet pack nupkgs/OpenSync.AspNetCore/OpenSync.AspNetCore.csproj --configuration Release --no-build -o nupkgs/output
 
-      - name: Pack OpenSync.Sdk
-        run: dotnet pack nupkgs/OpenSync.Sdk/OpenSync.Sdk.csproj --configuration Release --no-build -o nupkgs/output
-
       - name: Publish to GitHub Packages
         run: |
           dotnet nuget push nupkgs/output/OpenSync.AspNetCore.1.0.0.nupkg --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" --api-key ${{ secrets.NUGET_AUTH_TOKEN }} --skip-duplicate
-          dotnet nuget push nupkgs/output/OpenSync.Sdk.1.0.0.nupkg --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" --api-key ${{ secrets.NUGET_AUTH_TOKEN }} --skip-duplicate
 
       - name: Release
         uses: softprops/action-gh-release@v2
@@ -42,4 +38,3 @@ jobs:
         with:
           files: |
             nupkgs/output/OpenSync.AspNetCore.1.0.0.nupkg
-            nupkgs/output/OpenSync.Sdk.1.0.0.nupkg

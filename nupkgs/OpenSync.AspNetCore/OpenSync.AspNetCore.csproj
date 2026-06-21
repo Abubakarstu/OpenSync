@@ -18,7 +18,17 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>CS1591</NoWarn>
     <NuspecProperties>repository=https://github.com/Abubakarstu/OpenSync</NuspecProperties>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    <NoPackageAnalysis>true</NoPackageAnalysis>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\OpenSync.Core\OpenSync.Core.csproj" />
+    <ProjectReference Include="..\..\src\OpenSync.Application\OpenSync.Application.csproj" />
+    <ProjectReference Include="..\..\src\OpenSync.Infrastructure\OpenSync.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\src\OpenSync.Api\OpenSync.Api.csproj" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Include="$(OutputPath)**\*.dll" Pack="true" PackagePath="lib\net8.0\" Exclude="$(OutputPath)**\OpenSync.AspNetCore.dll;$(OutputPath)**\*.testhost.dll;$(OutputPath)**\xunit*.dll;$(OutputPath)**\Microsoft.TestPlatform*.dll" />
