@@ -174,6 +174,47 @@ POST   /tokens             Generate JWT token
 
 ---
 
+## Comparison: OpenSync vs Twilio Sync vs SignalR
+
+| Feature | OpenSync | Twilio Sync | SignalR |
+|---------|----------|-------------|---------|
+| **Hosting** | Self-hosted, open-source | Managed cloud (vendor lock-in) | Self-hosted, open-source |
+| **Pricing** | Free | Pay-per-operation | Free |
+| **Sync Primitives** | Documents, Lists, Maps, Streams, Channels | Documents, Lists, Maps, Streams, Channels | Hubs (RPC only — no data primitives) |
+| **REST API** | Full CRUD for all primitives | Full REST API | None (hub protocol only) |
+| **Transports** | WebSocket, SSE, Long-Polling | WebSocket | WebSocket, SSE, Long-Polling |
+| **Persistence** | PostgreSQL, SQLite, SQL Server (pluggable) | Managed (no direct DB access) | None (in-memory only) |
+| **Conflict Resolution** | Optimistic concurrency via revisions | Last-write-wins | None |
+| **TTL Expiry** | Built-in per-object TTL with cleanup | Built-in | None |
+| **Authentication** | JWT + API keys | Twilio Access Tokens | Custom (no built-in) |
+| **Channel Presence** | Join/leave, metadata, member list | Join/leave, metadata | Groups (no metadata, no presence) |
+| **Multi-Instance** | Redis backplane (built-in) | Managed (auto-scale) | Redis backplane (manual setup) |
+| **Rate Limiting** | Built-in sliding window | Built-in | None |
+| **Embeddable** | Yes — NuGet package, 3 lines of code | No (separate service) | Yes — built into ASP.NET Core |
+| **Pagination** | Built-in cursor & offset pagination | Pagination available | None |
+| **Heartbeat** | Bidirectional 30s interval | Yes | Keep-alive only |
+| **Vendor Lock-in** | None | Complete | ASP.NET Core ecosystem |
+
+### What OpenSync provides that Twilio Sync doesn't
+- **Self-hosted, open-source** — no vendor lock-in, no per-operation costs
+- **Direct database access** — own your data completely
+- **Multiple transports** — SSE and Long-Polling alongside WebSocket
+- **Optimistic concurrency** — revision-based conflict detection (Twilio uses last-write-wins)
+- **Embeddable** — as a NuGet package in any ASP.NET Core app
+- **Pluggable databases** — PostgreSQL, SQLite, SQL Server
+
+### What OpenSync provides that SignalR doesn't
+- **5 sync primitives** — Documents, Lists, Maps, Streams, Channels (SignalR only has RPC Hubs)
+- **Full REST API** — CRUD on all primitives
+- **Data persistence** — PostgreSQL/SQL Server (SignalR is purely in-memory)
+- **Conflict resolution** — optimistic concurrency and revision tracking
+- **TTL expiry** — automatic data cleanup
+- **Built-in auth** — JWT/API key with scoped permissions
+- **Channel presence** — metadata and member tracking
+- **Rate limiting** — out of the box
+
+---
+
 ## Documentation
 
 | Category | Link |
